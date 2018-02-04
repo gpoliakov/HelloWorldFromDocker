@@ -14,4 +14,6 @@ WORKDIR /HelloWorldFromDocker
 
 COPY . /HelloWorldFromDocker
 
+EXPOSE 9000
+
 CMD sbt run

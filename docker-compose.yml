@@ -1,0 +1,19 @@
+version: "3"
+services:
+  web:
+    image: groggus/hello-world:v1
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 300M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "9000:9000"
+    stdin_open: true
+    networks:
+      - webnet
+networks:
+  webnet:
