@@ -7,11 +7,11 @@ services:
       resources:
         limits:
           cpus: "0.5"
-          memory: 300M
+          memory: 500M
       restart_policy:
         condition: on-failure
     ports:
-      - "9000:9000"
+      - "80:9000"
     stdin_open: true
     networks:
       - webnet

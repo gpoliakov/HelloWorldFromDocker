@@ -9,6 +9,9 @@ scalaVersion := "2.12.4"
 crossScalaVersions := Seq("2.11.12", "2.12.4")
 
 libraryDependencies += guice
+libraryDependencies ++= Seq(
+  "com.datastax.cassandra" % "cassandra-driver-core" % "3.3.0"
+)
 
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint")
 

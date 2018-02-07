@@ -1,8 +1,8 @@
 import com.google.inject.AbstractModule
-import services.ApplicationTimer
-import services.AtomicCounter
-import services.Counter
+import services.{ApplicationTimer, AtomicCounter, CassandraCounter, Counter}
 import java.time.Clock
+
+import model.CassandraDAO
 
 
 class Module extends AbstractModule {
@@ -12,8 +12,10 @@ class Module extends AbstractModule {
     // Ask Guice to create an instance of ApplicationTimer when the
     // application starts.
     bind(classOf[ApplicationTimer]).asEagerSingleton()
-    // Set AtomicCounter as the implementation for Counter.
-    bind(classOf[Counter]).to(classOf[AtomicCounter])
+    // Set CassandraDAO as dao.
+    bind(classOf[CassandraDAO]).toInstance(CassandraDAO())
+    // Set CassandraCounter as the implementation for Counter.
+    bind(classOf[Counter]).to(classOf[CassandraCounter])
   }
 
 }
