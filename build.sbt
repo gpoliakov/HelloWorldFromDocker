@@ -1,4 +1,4 @@
-name := "HelloWorldFromDocker"
+name := "PlayCassandraDocker"
 
 version := "0.1"
 
