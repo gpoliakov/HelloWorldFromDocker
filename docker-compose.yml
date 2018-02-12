@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    image: groggus/hello-world:v1
+    image: playcassandraexample:latest
     deploy:
       replicas: 2
       resources:
@@ -11,9 +11,9 @@ services:
       restart_policy:
         condition: on-failure
     ports:
-      - "80:9000"
+      - "9000:9000"
     stdin_open: true
-    networks:
-      - webnet
-networks:
-  webnet:
+  cassandra:
+    image: cassandra
+    ports:
+      - "9042:9042"
